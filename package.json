@@ -1,0 +1,34 @@
+{
+  "name": "dev014-movie-challenge",
+  "version": "1.0.0",
+  "description": "- [1. Preámbulo](#1-preambulo)\r - [2. Resumen del proyecto](#2-resumen-del-proyecto)\r - [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)\r - [4. Consideraciones generales](#4-consideraciones-generales)\r - [5. Consideraciones técnicas](#5-consideraciones-técnicas)\r - [6. Criterios mínimos de aceptación del proyecto](#6-criterios-mínimos-de-aceptación-del-proyecto)\r - [7. Deploy](#7-deploy)\r - [8. Consideraciones para pedir tu project feedback](#8-consideraciones-para-pedir-tu-project-feedback)\r - [9. Consejos, guías y lecturas complementarias](#9-consejos-guías-y-lecturas-complementarias)",
+  "main": "index.js",
+  "scripts": {
+    "htmlhint": "htmlhint src/*.html test/*.html",
+    "eslint": "eslint --ext .js src/ test/",
+    "pretest": "npm run eslint && npm run htmlhint",
+    "test": "jest --verbose --coverage test/",
+    "open-coverage-report": "opener ./coverage/lcov-report/index.html",
+    "dev": "vite src/"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.6.0",
+    "acorn": "^8.8.2",
+    "babel-jest": "^27.0.1",
+    "css": "^3.0.0",
+    "eslint": "^8.3.0",
+    "eslint-plugin-import": "^2.29.1",
+    "gh-pages": "^3.1.0",
+    "htmlhint": "^1.0.0",
+    "jest": "^27.0.1",
+    "jsdom": "^22.1.0",
+    "opener": "^1.5.1",
+    "serve": "^14.2.1"
+  },
+  "author": "gisela",
+  "license": "ISC",
+  "dependencies": {
+    "vite": "^5.2.11"
+  }
+}
