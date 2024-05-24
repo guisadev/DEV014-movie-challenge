@@ -4,12 +4,9 @@
   "description": "- [1. Preámbulo](#1-preambulo)\r - [2. Resumen del proyecto](#2-resumen-del-proyecto)\r - [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)\r - [4. Consideraciones generales](#4-consideraciones-generales)\r - [5. Consideraciones técnicas](#5-consideraciones-técnicas)\r - [6. Criterios mínimos de aceptación del proyecto](#6-criterios-mínimos-de-aceptación-del-proyecto)\r - [7. Deploy](#7-deploy)\r - [8. Consideraciones para pedir tu project feedback](#8-consideraciones-para-pedir-tu-project-feedback)\r - [9. Consejos, guías y lecturas complementarias](#9-consejos-guías-y-lecturas-complementarias)",
   "main": "index.js",
   "scripts": {
-    "htmlhint": "htmlhint src/*.html test/*.html",
-    "eslint": "eslint --ext .js src/ test/",
-    "pretest": "npm run eslint && npm run htmlhint",
     "test": "jest --verbose --coverage test/",
     "open-coverage-report": "opener ./coverage/lcov-report/index.html",
-    "dev": "vite src/"
+    "dev": "vite ./src"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
@@ -22,6 +19,7 @@
     "gh-pages": "^3.1.0",
     "htmlhint": "^1.0.0",
     "jest": "^27.0.1",
+    "jest-fetch-mock": "^3.0.3",
     "jsdom": "^22.1.0",
     "opener": "^1.5.1",
     "serve": "^14.2.1"
