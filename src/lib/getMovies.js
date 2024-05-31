@@ -15,7 +15,7 @@ const dataResult = () => {
 
 export default dataResult;
 
-/*const detailsResult = () => {
+const detailsResult = () => {
     const options = {
         method: 'GET',
         headers: {
@@ -24,8 +24,10 @@ export default dataResult;
         }
     };
     
-    fetch('https://api.themoviedb.org/3/movie/movie_id', options)
+    return fetch('https://api.themoviedb.org/3/movie/3', options)
         .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
-}*/
+        .then(response => response) //quitar el console.log después de ejecutar la función details.
+        .catch(err => err);
+}
+
+export { detailsResult };

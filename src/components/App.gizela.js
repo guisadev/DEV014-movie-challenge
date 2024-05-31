@@ -1,5 +1,5 @@
 //fetch()
-const myHeaders = new Headers();
+/*const myHeaders = new Headers();
 myHeaders.append("accept", "application/json");
 myHeaders.append("Authorization", " Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiODE1YWM3YjI3YTljY2ZjMjg2ZDIyMDQ5YWEzNzUwNyIsInN1YiI6IjY2NDJjMDY2NTNjMmRjMTZiNjU5Y2IyYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._Sj8-CMfBbQxq9VY0alFIPJ9oLpJL34KCladD1jXQBs");
 
@@ -24,4 +24,4 @@ const dataResult = fetch("https://api.themoviedb.org/3/discover/movie?include_ad
     console.error('There was a problem with the fetch operation:', error);
   });
 
-export default dataResult;
+export default dataResult;*/

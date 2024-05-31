@@ -1,10 +1,26 @@
-//aquí va todo lo relacionado al DOM
-import App from './components/App.js';
+import { Home } from './views/home.js';
+import {Error } from './views/error.js'
+import {Detail } from './views/detail.js'
+import { setRootEl, setRoutes, onURLChange } from './router.js';
 
 const root = document.getElementById('root');//aqui debe ir el append de app
-App().then((element) => { // me dice que .then no está definido o que no es una función
-    root.appendChild(element);
-}).catch((error) => {
-    console.error('Error al renderizar App:', error);
+
+// ... import other views
+
+// Define your routes and their associated views
+const routes = {
+  '/': Home,
+  '/error': Error,
+  '/detail': Detail
+  // ...
+};
+
+// Assign the routes
+setRoutes(routes);
+
+// Set the root element where views will be rendered
+window.addEventListener("DOMContentLoaded", () => {
+  setRootEl(root);
+onURLChange(window.location.pathname);
 });
 
