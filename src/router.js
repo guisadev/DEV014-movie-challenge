@@ -1,50 +1,41 @@
 let ROUTES = {};
-let rootEl;
+let rootEl; //Elemento DOM: Esta variable almacena el elemento donde el contenido SPA cambiará/aparecerá.
 
 export const setRootEl = (nodoRoot) => {
-  // assign rootEl
   rootEl = nodoRoot;
 }
 
-export const setRoutes = (routes) => {
-  // optional Throw errors if routes isn't an object
-  // optional Throw errors if routes doesn't define an /error route
-  Object.assign(ROUTES, routes); // assign ROUTES
-}
-
-const queryStringToObject = (queryString) => {
-  // convert query string to URLSearchParams
-  // convert URLSearchParams to an object
-  // return the object
-}
-
-const renderView = (pathname, props={}) => {
-  // clear the root elemeny
-  rootEl.innerHTML = '';
-  // find the correct view in ROUTES for the pathname
-const allRoutes = Object.keys(ROUTES);
-const correctRoute = allRoutes.filter(routes => pathname == routes);
-  // in case not found render the error view
-  if (correctRoute [0] !== undefined) {
-    //render the correct view passing the value of props
-    // add the view element to the DOM root element
-const route = ROUTES[correctRoute[0]];
-rootEl.appendChild(route()) //aqui esta pendiente pasar las props 
+export const setRoutes = (routes) => { //Utilice esta función para definir las rutas para su SPA.
+  if (typeof routes !== 'object' || !routes['/error']) {
+    throw new Error('Routes must be an object and must define an /error route');
   }
-
-
-} 
-
-export const navigateTo = (pathname, props={}) => {
-  // update window history with pushState
-  // render the view with the pathname and props
+  Object.assign(ROUTES, routes);
 }
 
-export const onURLChange = (location = '/') => {
-  // parse the location for the pathname and search params
+const queryStringToObject = (queryString) => { //Una función de utilidad para convertir una cadena de search o query string en un objeto para acceder fácilmente a los parámetros de consulta.
+  const params = new URLSearchParams(queryString);
+  return Object.fromEntries(params.entries());
+}
 
-  // convert the search params to an object
+const renderView = (pathname, props = {}) => { //Pasando el valor props como argumento a la vista. Esta función representa una vista en el elemento raíz especificado.
+  rootEl.innerHTML = ''; //el.innerHTML = "Que onda soy el detalle de la peli";
 
-  // render the view with the pathname and object
-  renderView(location, undefined) // mirar linea 32 y 21
+  const route = ROUTES[pathname] || ROUTES['/error'];
+  rootEl.appendChild(route(props));
+}
+
+export const navigateTo = (pathname, props = {}) => { //Esta función se utiliza para navegar mediante programación a una nueva ruta dentro del SPA.
+  const url = new URL(window.location.href);
+  url.pathname = pathname; 
+  url.search = new URLSearchParams(props).toString();
+  window.history.pushState({}, '', url.toString()); //Actualiza la URL usando esa forma dada para mostrar la vista correspondiente.
+  renderView(pathname, props); //Props que es un objeto de datos que podemos pasar a la vista.
+}
+
+export const onURLChange = (location = '/') => { //Esta función está destinada a manejar cambios de URL.
+  const url = new URL(window.location.href); //usar aquí popstate
+  const pathname = url.pathname;
+  const searchParams = queryStringToObject(url.search);
+
+  renderView(pathname, searchParams);
 }

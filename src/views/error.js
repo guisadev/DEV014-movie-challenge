@@ -1,4 +1,4 @@
-//esto es un ejemplo
+//función que devuelve el error en la UI
 
 export const Error = () => {
     
