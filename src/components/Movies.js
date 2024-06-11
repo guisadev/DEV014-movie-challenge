@@ -3,7 +3,6 @@
 import dataResult from '../lib/getMovies'; // Adjust the path as necessary
 import {detailsResult} from '../lib/getMovies';
 import {  showMovieDetails } from './Detail.js'; // Adjust the path as necessary
-// el .then lo utilizo porque es una respuesta asincrona
 import { navigateTo } from '../router.js';
 // importar la funcion navigateTo
 
@@ -62,7 +61,7 @@ const Movies = () => {
 // Función details que maneja los detalles adicionales
 // aqui no se usa esta funcion
 const details = () => {
-    return detailsResult().then(result => {
+    return detailsResult().then(result => { // el .then lo utilizo porque es una respuesta asincrona
         const arrayDetailsList = result.results;
         arrayDetailsList.forEach(item => {
 

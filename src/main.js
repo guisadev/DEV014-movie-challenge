@@ -4,9 +4,6 @@ import { DetailView } from './views/detail.js'
 import { setRootEl, setRoutes, onURLChange } from './router.js';
 
 const root = document.getElementById('root');//aqui debe ir el append de app
-
-// ... import other views
-
 // Define your routes and their associated views
 const routes = { //routes debe ser un objeto (considere verificar que sea un objeto y arrojar un error si no es así). Utilice esta función para definir las rutas para su SPA.
   '/': Home,
