@@ -1,16 +1,5 @@
 // aqui va el detalle
-// paso 3 
 // creaas una funcion que espera como parametro una prop y la prop contiene el id de la pelicula
-const myHeaders = new Headers();
-myHeaders.append("accept", "application/json");
-myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiODE1YWM3YjI3YTljY2ZjMjg2ZDIyMDQ5YWEzNzUwNyIsInN1YiI6IjY2NDJjMDY2NTNjMmRjMTZiNjU5Y2IyYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._Sj8-CMfBbQxq9VY0alFIPJ9oLpJL34KCladD1jXQBs");
-
-const requestOptions = {
-method: "GET",
-headers: myHeaders,
-redirect: "follow"
-};
-
 const showMovieDetails = (movieId) => {
 fetch(`https://api.themoviedb.org/3/movie/${movieId}`, requestOptions)
     .then(response => {
@@ -41,13 +30,13 @@ if (existingModal) {
 }
 
 const modal = document.createElement('div');
-    modal.classList.add('modal'); // Agrega tus estilos CSS aquí
+    modal.classList.add('modal'); // 
 
 const modalContent = document.createElement('div');
-    modalContent.classList.add('modal-content'); // Agrega tus estilos CSS aquí
+    modalContent.classList.add('modal-content'); // 
 
 const closeButton = document.createElement('span');
-closeButton.classList.add('close-button'); // Agrega tus estilos CSS aquí
+closeButton.classList.add('close-button'); // 
 closeButton.textContent = '×';
 closeButton.addEventListener('click', () => {
     modal.remove();

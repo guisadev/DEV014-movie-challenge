@@ -1,4 +1,3 @@
-//
 import { fetchMovieDetails } from '../components/getMovieDetails';
 
 export const DetailView = (props) => {

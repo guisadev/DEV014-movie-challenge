@@ -1,30 +1,54 @@
 //Aquí se importa la función que contiene la promesa que va a devolver las películas
 import Movies from '../components/Movies.js';
-import { select } from '../components/Select.js';
+import { orderByTitle, select } from '../components/Select.js';
+//import { orderSortArray } from '../views/filter-sort.js'
+
+const render = (div,filter, orderByTitle) => {
+    Movies(div,filter,orderByTitle).then((element) => {
+    div.appendChild(element);
+    }).catch((error) => {
+    console.error('Error al renderizar App:', error);
+    });
+
+return div;
+};
 
 export const Home = () => {
 const el = document.createElement("span");
 const div = document.createElement("div");// aqui esta el nodo de las peliculas
 el.appendChild(select());
+el.appendChild(orderByTitle());
+
 const yearSelect = el.querySelector('#year')
+const titleSelect = el.querySelector('.original_title')
+
+
 yearSelect.addEventListener('change', (event) =>{
-    const selectedYear = event.target.value;
+const selectedYear = event.target.value;
     console.log(selectedYear);
-    // primer paso borrar las peliculas
-//const renderView = 
-    // segundo paso invocar a la funcion que trae el endpoint
-    // hacer un console.log para imprimir la respuesta de la promesa
 
-    // poner la nuevas peliculas de acuerdo al filtro
+//clear the movies
+while (div.firstChild) {
+    div.removeChild(div.firstChild);
+}
+const filter = { year: selectedYear };
+console.log(selectedYear);
+
+render(div, filter);
 });
 
-Movies().then((element) => { //
-    div.appendChild(element);
-}).catch((error) => {
-    console.error('Error al renderizar App:', error);
-});
+titleSelect.addEventListener('change', (event) => {
+const selectedTitle = event.target.value;
+    console.log('select ordenar',selectedTitle);
 
-el.appendChild(div)
+//clear the movies
+while (div.firstChild) {
+    div.removeChild(div.firstChild);
+}
+const filter = { title: selectedTitle };
+    render(div, filter);
+})
+
+el.appendChild(render(div, {}));
 return el;
 }
-

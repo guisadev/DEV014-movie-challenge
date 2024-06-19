@@ -18,7 +18,7 @@ const queryStringToObject = (queryString) => { //Una función de utilidad para c
 }
 
 const renderView = (pathname, props = {}) => { //Pasando el valor props como argumento a la vista. Esta función representa una vista en el elemento raíz especificado.
-  rootEl.innerHTML = ''; //el.innerHTML = "Que onda soy el detalle de la peli";
+  rootEl.innerHTML = ''; //el detalle de la peli
 
   const route = ROUTES[pathname] || ROUTES['/error'];
   rootEl.appendChild(route(props));
