@@ -1,4 +1,4 @@
-import dataResult from "../lib/getMovies";
+//import dataResult from "../lib/getMovies";
 
 const myHeaders = new Headers();
 myHeaders.append("accept", "application/json");

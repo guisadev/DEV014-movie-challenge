@@ -1,7 +1,7 @@
 //aquí va todo lo relacionado al DOM
 import App, {detailsResult} from './components/App.js';
 
-const root = document.getElementById('root');//aqui debe ir el append de app
+const root = document.getElementById('root');
 
 App().then((element) => { //
     root.appendChild(element);

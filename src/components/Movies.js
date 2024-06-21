@@ -81,7 +81,7 @@ return errorMessage;
 };
 
 const details = () => {
-    return detailsResult().then(result => { // el .then lo utilizo porque es una respuesta asincrona
+    return detailsResult().then(result => { 
     const arrayDetailsList = result.results;
         
     arrayDetailsList.forEach(item => {
