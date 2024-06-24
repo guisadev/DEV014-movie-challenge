@@ -1,3 +1,4 @@
+//endpoint
 const dataResult = () => {
     const options = {
         method: 'GET',
