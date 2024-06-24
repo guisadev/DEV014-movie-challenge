@@ -1,7 +1,7 @@
 // Habilita los mocks de fetch
 // import fetchMock from 'jest-fetch-mock';
 import { dataResult } from '../src/lib/getMovies';
-
+//declarar global
 describe('dataResult', () => {
     beforeEach(() => {
         fetch.mockClear();

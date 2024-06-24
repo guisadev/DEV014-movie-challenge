@@ -16,39 +16,9 @@
 
 ## 1. Preámbulo
 
-La manera en que vemos películas ha cambiado radicalmente durante los últimos
-años debido, en parte, a la aparición de los servicios de
-[_streaming_](https://es.wikipedia.org/wiki/Streaming) que nos permiten hacerlo
-desde donde estemos y en cualquier momento. El mejor reflejo de este fenómeno es
-el éxito de Netflix, HBO y Disney+, etc.
-
-En tiempos en los que una de las principales herramientas para combatir
-[la pandemia de Covid-19](https://es.wikipedia.org/wiki/COVID-19) es
-[evitar](https://es.wikipedia.org/wiki/Distanciamiento_social) compartir
-espacios con muchas personas (como en el cine), ver películas por _streaming_
-es una de las pocas maneras de hacerlo (¿o la única?).
-
-Creemos que hay una gran oportunidad de proponer productos/experiencias
-innovadoras de todo tipo utilizando datos de películas (directorxs, actorxs,
-sagas, secuelas, fechas, etc.). Podríamos pensar en juegos, comunidades,
-catálogos, recomendaciones basadas en gustos personales, etc. (sólo por
-mencionar algunas ideas obvias).
+El desafío de películas se ha desarrollado con la intención de que el usuario logre acceder a una listado de películas. La web está diseñada para que logre acceder a alguna de las películas a travéz de un filtro por año de lanzamiento y/o por ordenado a través del titulo de la pleícula de manera ascendente o descendente, permitiendo un acceso más directo a lo que desea encontrar.
 
 ![Pelis](https://live.staticflickr.com/117/257368762_38bf6fcf9f_h.jpg)
-
-## 2. Resumen del proyecto
-
-En este proyecto, crearás una página web para ver, filtrar y ordenar el
-catálogo de peliculas de la [_The Movie Database API V3_](https://developer.themoviedb.org/docs).
-Esta página puede servir como un catálogo de películas general, pero también si
-ud quiere, puede considerar la posibilidad de diseñarlo para un público en
-específico con preferencias como "películas occidentales" o "películas de los
-80", por ejemplo.
-
-Aunque la decisión de qué hacer es enteramente tuya, hay algunas consideraciones
-generales que se presentan a continuación. Puedes cumplir esos requisitos en
-proyectos muy diferentes, ¡depende de tu creatividad y del entendimiento que
-tengas de tus potenciales usuarixs!
 
 ## 3. Objetivos de aprendizaje
 
@@ -285,8 +255,7 @@ por cada [IP](https://es.wikipedia.org/wiki/Direcci%C3%B3n_IP), creemos que es
 suficiente, pero te recomendamos hacer un uso responsable de este recurso
 gratuito.
 
-El _boilerplate_ contiene una estructura de archivos como punto de partida así
-como toda la configuración de dependencias:
+El _boilerplate_ contiene una estructura de archivos que se dividen en components y views que será donde se implementarán los archivos para trabajar en orden y así también toda la configuración de dependencias:
 
 ```text
 .
@@ -298,10 +267,22 @@ como toda la configuración de dependencias:
 ├── README.md
 ├── src
     ├── components
-    │   ├── App.js
-    │   └── App.spec.js
+    │   ├── App.gizela.js
+    │   └── Detail.js
+    |   |__ fakeApp.js
+    |   |__ getMovieDetail.js
+    |   |__ Movies.js
+    |   |__ Select.js
+    |__ views
+    |   |__ detail.js
+    |   |__ error.js
+    |   |__ filter-sort.js
+    |   |__ home.js
+    |   |__ repaso.js
     ├── index.html
+    |__ main copy.js
     ├── main.js
+    |__ router.js
     └── style.css
 
 ```
@@ -314,49 +295,26 @@ son los scripts se utilizarán y armarán todo lo que se ha hecho.
 
 ### `src/main.js`
 
-Recomendamos usar `src/main.js`, como punto de entrada de tu aplicación. El
-_boilerplate_  incluye este archivo para conectar o montar el componente `App`
-en el DOM. De esta manera podemos hacer test unitarios de nuestros componentes
-que necesitemos que están conectados a una DOM global.
-
-Aquí es donde recomendamos implementar su SPA (Single Page Application).
-
-Esta no es la única manera de dividir tu código. Puede utilizar más archivos y
-carpetas, siempre que la estructura esté clara.
+En el archivo main `src/main.js`, como punto de entrada de la aplicación será el encargado de renderizar las vistas del router que mostrará la implementación de la SPA (Single Page Application).
 
 ### `src/components/App.js`
 
-Este archivo contiene un componente ejemplo que muestra cómo podemos representar
+Este archivo contiene componentes que muestra cómo podemos representar
 un componente en función que devuelve un `HTMLElement`. A la hora de construir
 interfaces, es útil pensar en los términos de los _componentes_ o vistas que
-podemos anidar una dentro de las otras. Te invitamos a  que pienses
-en qué _componentes_ o cajita se necesitas para construir tu aplicación y que
-_componentes_ añade en la dirección `components` a aplicar a cada uno de ellos.
-Aunque de nuevo al final, la manera de organizar sus archivos depende de de ti y
-tu equipo. Hay muchas maneras de hacerlo, y el _boilerplate_ es sólo una
-sugerencia".
+podemos anidar una dentro de las otras. Aquí uso algunos componentes para crear funciones con vanilla JS, otros para trabajar con método reacto antes de aplicar funciones y archivos que son implementados con el desarrollo en el cual se exportan funciones. Pensé estos  _componentes_ como cajitas que se necesitan para construir la aplicación.
 
-### `scr/components/App.spec.js`
+### `scr/test/App.spec.js`
 
 Este archivo muestra cómo podemos crear archivos con especificaciones (expresado
 como test unitarios) de nuestros componentes.
 
 ## 6. Criterios mínimos de aceptación del proyecto
 
-### Prototipo de baja fidelidad
-
-El [Product Owner](https://www.youtube.com/watch?v=r2hU7MVIzxs&t=202s) nos
-proporciona una primera iteración del prototipo de baja fidelidad de la
-aplicación en esta [imagen de pagina de detalle](https://github.com/Laboratoria/SAP012-movie-challenge/blob/main/docs/movie-detail.png)
-y en [este imagen de lista de peliculas](https://github.com/Laboratoria/SAP012-movie-challenge/blob/main/docs/movie-list.png)
-otro.
-
-### Definición del producto
-
-El [Product Owner](https://www.youtube.com/watch?v=r2hU7MVIzxs&t=202s) nos
-resenta este _backlog_ que es el resultado de su trabajo con el cliente hasta el
-momento.
-
+### Prototipo de alta fidelidad
+ 
+Primero realicé una investigación rápida navegando por internet según un modelo en el cual basarme para construir un diseño. En Figma, reuní modelos algunas plantillas con colores y estructura que se alineaban con la idea que tenía para construir un prototipo. Teniendo esto, utilicé las herramientas de la plataforma para construir un prototipo en tamaño móvil y luego en tamaño escritorio.
+El proyecto fue tomando forma gracias al testeo de usabilidad y los feedbacks obetenidos en los sprint reviews de cada demo.
 ---
 
 #### [Historia de Usuario 1] Lista de Películas
@@ -427,23 +385,8 @@ que permite implementar nuestra aplicación web estática (HTML, CSS y JavaScrip
 y también permite implementar aplicaciones web que se ejecutan en el servidos
 (Node.js).
 
-## 8. Consideraciones para pedir tu Project Feedback
 
-Antes de agendar tu Project Feedback con un coach, asegúrate que tu proyecto:
-
-- [ ] Tiene prototipo de alta fidelidad en Figma
-- [ ] Tiene todos los [Criterios minimos de Aceptación](#6-criterios-mínimos-de-aceptación-del-proyecto)
-- [ ] El código deberá esta en Github
-- [ ] Esta con [Deploy](#7-deploy)
-- [ ] Tiene un Readme con definición de producto
-
-Recuerda que debes hacer una autoevaluación de _objetivos de aprendizaje_ y
-_life skills_ desde tu dashboard de estudiante.
-
-Si no has completado todo lo anterior, no consideramos que estás lista para
-tu sesión de Project Feedback.
-
-## 9. Consejos, guías y lecturas complementarias
+## 8. Consejos, guías y lecturas complementarias
 
 ### Propotito de alta fidelidad
 
@@ -486,4 +429,4 @@ Si puedes tomarte el tiempo y quieres profundizar en las rutas y en la
 construcción de una SPA mas robusta, como `Hacker Edition`, puedes inplementar
 [Router con JavaScript puro](https://github.com/Laboratoria/curriculum/blob/main/guides/router-spa/README.md)
 
-Trata de divertirte. ¡a empezar esta aventura 🎬!
+¡a empezar esta aventura 🎬!

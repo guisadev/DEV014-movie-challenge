@@ -19,7 +19,7 @@ const div = document.createElement("div");// aqui esta el nodo de las peliculas
 el.appendChild(select());
 el.appendChild(orderByTitle());
 
-const yearSelect = el.querySelector('#year')
+const yearSelect = el.querySelector('#year') //declaro la variable y le asigno un querySelector
 const titleSelect = el.querySelector('.original_title')
 
 
@@ -27,7 +27,7 @@ yearSelect.addEventListener('change', (event) =>{
 const selectedYear = event.target.value;
     console.log(selectedYear);
 
-//clear the movies
+//clear the movies with bucle
 while (div.firstChild) {
     div.removeChild(div.firstChild);
 }

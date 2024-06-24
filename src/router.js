@@ -5,9 +5,9 @@ export const setRootEl = (nodoRoot) => {
   rootEl = nodoRoot;
 }
 
-export const setRoutes = (routes) => { //Utilice esta función para definir las rutas para su SPA.
+export const setRoutes = (routes) => { //definir las rutas para su SPA.
   if (typeof routes !== 'object' || !routes['/error']) {
-    throw new Error('Routes must be an object and must define an /error route');
+    throw new Error('Las rutas deben ser un objeto y definir la ruta de error');
   }
   Object.assign(ROUTES, routes);
 }
@@ -32,7 +32,7 @@ export const navigateTo = (pathname, props = {}) => { //Esta función se utiliza
   renderView(pathname, props); //Props que es un objeto de datos que podemos pasar a la vista.
 }
 
-export const onURLChange = (location = '/') => { //Esta función está destinada a manejar cambios de URL.
+export const onURLChange = (location = '/') => { //destinada a manejar cambios de URL.
   const url = new URL(window.location.href); //usar aquí popstate
   const pathname = url.pathname;
   const searchParams = queryStringToObject(url.search);

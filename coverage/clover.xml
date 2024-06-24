@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1718828171925" clover="3.2.0">
-  <project timestamp="1718828171925" name="All files">
+<coverage generated="1718984087837" clover="3.2.0">
+  <project timestamp="1718984087838" name="All files">
     <metrics statements="18" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="0" elements="30" coveredelements="3" complexity="0" loc="18" ncloc="18" packages="1" files="1" classes="1"/>
     <file name="getMovies.js" path="C:\proyectos laboratoria\DEV014-movie-challenge\src\lib\getMovies.js">
       <metrics statements="18" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="0"/>

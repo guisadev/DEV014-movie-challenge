@@ -74,6 +74,16 @@ li{
   grid-template-columns: 12fr;
 }
 
+p{
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  border-style:groove;
+  border-color: hotpink;
+  box-shadow: 0 0 20px #E91E63;
+  border-radius: 12px;
+}
+
 button{
   color: #bc05db;
   border-color: blueviolet;
@@ -113,8 +123,6 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
   padding: 20px;
   border-radius: 10px;
-  
-  
 }
 
 .modal-content {
@@ -147,4 +155,5 @@ p {
     flex: 50%;
   }
 }
-
+/*fdb: es mejor usar selectores en vez de etiquetas para los proyectos para dar más especificidad
+no usar unidades de medidad en px y hacer diseño fluido con em/ems*/

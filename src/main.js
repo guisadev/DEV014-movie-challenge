@@ -26,12 +26,12 @@ const routes = { //routes debe ser un objeto (considere verificar que sea un obj
 };
 
 // Assign the routes
-setRoutes(routes); //Esta función asigna el valor del argumento routes al objeto ROUTES
+setRoutes(routes); //asigna el valor del argumento routes al objeto ROUTES
 
 // Set the root element where views will be rendered
 window.addEventListener("DOMContentLoaded", () => {
   setRootEl(root);
-onURLChange(window.location.pathname);
+onURLChange(window.location.pathname); //propiedad y valor que contienen la ruta url de la posición de ubicación.
 });
 
 window.addEventListener('popstate',()=>{
